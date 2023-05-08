@@ -105,44 +105,46 @@ void searchRecord(char name[20])
 int main()
 
 {
+    printf("enter the customer information:\n");
+    printf("enter the name:...");
+    scanf("%s",e[size].name);
+    printf("enter the activity:....");
+    scanf("%s",e[size].activity);
+
     int num = 1;
+    char name[20];
+    int id;
     do
     {
-        printf("enter the customer information:\n");
-        printf("enter the name:...");
-        scanf("%s",e[size].name);
-        printf("enter the activity:....");
-        scanf("%s",e[size].activity);
-        // size++;
-
-        printf("\nMain Menu\n======\n");
-        printf("\n1.display_activity\n2.addRecord\n3.deleteRecord\n4.searchRecord\n5 Exit\n Make a choice:....");
-        scanf("%d",&b);
-
-        switch(b)
-        {
-        case 1:
-            display_activity();
-            break;
-        case 2:
-            addRecord(e[size].name,e[size].activity);
-            break;
-        case 3:
-            int id;
-            printf("\n\n Enter User Id: ");
-            scanf("%d",&id);
-            deleteRecord(id);
-            break;
-        case 4:
-            searchRecord(e[size].name);
-            break;
-        case 5:
-            num = 0;
-            printf("good bye");
-            break;
-        default:
-            printf("wrong choice! choose again...");
+        while(num != 0){
+            printf("\nMain Menu\n======\n");
+            printf("\n1.display_activity\n2.addRecord\n3.deleteRecord\n4.searchRecord\n0 Exit\n Make a choice:....");
+            scanf("%d",&b);
+            switch(b)
+            {
+            case 1:
+                display_activity();
+                break;
+            case 2:
+                addRecord(e[size].name,e[size].activity);
+                break;
+            case 3:
+                printf("\n\n Enter User Id: ");
+                scanf("%d",&id);
+                deleteRecord(id);
+                break;
+            case 4:
+                printf("\n\n Enter User Name or Id: ");
+                scanf("%s",name);
+                searchRecord(name);
+                break;
+            case 5:
+                num = 0;
+                printf("good bye");
+                break;
+            default:
+                printf("wrong choice! choose again...");
+            }
         }
-
-    }while(num != 0);
+    }while(b != 0);
 }
