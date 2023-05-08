@@ -105,19 +105,19 @@ void searchRecord(char name[20])
 int main()
 
 {
-    printf("enter the customer information:\n");
-    printf("enter the name:...");
-    scanf("%s",e[size].name);
-    printf("enter the activity:....");
-    scanf("%s",e[size].activity);
-    // size++;
-
-    printf("\nMain Menu\n======\n");
-    printf("\n1.display_activity\n2.addRecord\n3.deleteRecord\n4.searchRecord\n0 Exit\n Make a choice:....");
-    scanf("%d",&b);
-    int num;
+    int num = 1;
     do
     {
+        printf("enter the customer information:\n");
+        printf("enter the name:...");
+        scanf("%s",e[size].name);
+        printf("enter the activity:....");
+        scanf("%s",e[size].activity);
+        // size++;
+
+        printf("\nMain Menu\n======\n");
+        printf("\n1.display_activity\n2.addRecord\n3.deleteRecord\n4.searchRecord\n5 Exit\n Make a choice:....");
+        scanf("%d",&b);
 
         switch(b)
         {
@@ -137,11 +137,12 @@ int main()
             searchRecord(e[size].name);
             break;
         case 5:
+            num = 0;
             printf("good bye");
             break;
         default:
             printf("wrong choice! choose again...");
         }
-        num = 5;
-    }while(num == b);
+
+    }while(num != 0);
 }
